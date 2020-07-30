@@ -1,0 +1,24 @@
+databaseConnection:
+    host: "confluence-server-db"
+    user: "confluenceuser"
+    database: "confluencedb"
+    password: "YOUR_PASSWORD_HERE"
+databaseDrop: 
+    enabled: true    
+global:
+    storageClass: "rook-cephfs"
+image:
+    tag: "6.13.8"        
+persistence:
+    storageClass: "rook-cephfs"
+postgresqlDatabase: "confluencedb"    
+postgresqlPassword: "postgres"
+postgresql:  
+    image:
+        tag: "9.6"
+    securityContext:
+        enabled: true
+        fsGroup: 70
+        runAsUser: 70    
+service:
+    type: "NodePort"
